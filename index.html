@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human Muscle Atlas — Complete Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- INTRO -->
+<div class="intro-overlay" id="introOverlay">
+  <div class="intro-line"></div>
+  <div class="intro-text">MUSCLE ATLAS</div>
+  <div class="intro-sub">Human Anatomy — Muscular System</div>
+  <div class="intro-line"></div>
+</div>
+
+<div class="progress-bar" id="progressBar"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">MUSCLE ATLAS</a>
+  <ul class="nav-links">
+    <li><a href="#muscles">Muscle Groups</a></li>
+    <li><a href="#body-map">Anatomy Map</a></li>
+    <li><a href="#planner">Workout Planner</a></li>
+    <li><a href="#compare">Compare</a></li>
+    <li><a href="#tips">Tips</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-search-btn" onclick="openSearch()">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.2"/><path d="M8.5 8.5L11 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Search
+    </button>
+    <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#muscles" onclick="closeMobileMenu()">Muscle Groups</a></li>
+    <li><a href="#body-map" onclick="closeMobileMenu()">Anatomy Map</a></li>
+    <li><a href="#planner" onclick="closeMobileMenu()">Workout Planner</a></li>
+    <li><a href="#compare" onclick="closeMobileMenu()">Compare</a></li>
+    <li><a href="#tips" onclick="closeMobileMenu()">Training Tips</a></li>
+  </ul>
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" onclick="handleSearchOverlayClick(event)">
+  <div class="search-box">
+    <input class="search-input" id="searchInput" placeholder="Search muscles, exercises..." oninput="doSearch()" autocomplete="off"/>
+    <button class="search-close" onclick="closeSearch()">✕</button>
+  </div>
+  <div class="search-results" id="searchResults"></div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Human Anatomy · Muscular System</p>
+    <h1 class="hero-title">HUMAN<br><span class="outline">MUSCLE</span><br>ATLAS</h1>
+    <p class="hero-sub">A comprehensive reference guide to the primary muscle groups — anatomy, function, and training science.</p>
+    <div class="hero-cta-row">
+      <a href="#muscles" class="btn-primary">
+        Explore Muscles
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#body-map" class="btn-secondary">View Anatomy Map</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">640+</div><div class="hero-stat-label">Total Muscles</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">12</div><div class="hero-stat-label">Muscle Groups</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">206</div><div class="hero-stat-label">Bones Supported</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">40%</div><div class="hero-stat-label">Body Mass</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">3</div><div class="hero-stat-label">Muscle Types</div></div>
+  </div>
+</section>
+
+<!-- MUSCLE CARDS -->
+<section id="muscles" class="muscle-section">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Primary Muscle Groups</p>
+    <h2 class="section-title">MAJOR MUSCLES</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="filter-row">
+    <button class="filter-btn active" data-filter="all">All Groups</button>
+    <button class="filter-btn" data-filter="upper">Upper Body</button>
+    <button class="filter-btn" data-filter="lower">Lower Body</button>
+    <button class="filter-btn" data-filter="core">Core</button>
+    <button class="filter-btn" data-filter="arms">Arms</button>
+  </div>
+  <div class="muscle-grid-wrap">
+    <div class="muscle-cards-container" id="muscleCards">
+
+      <!-- SHOULDERS -->
+      <div class="muscle-card shoulders reveal" data-cat="upper" onclick="openDetail('front-shoulder')">
+        <div class="card-num">01</div>
+        <span class="card-tag">UPPER BODY</span>
+        <h3 class="card-name">SHOULDERS</h3>
+        <p class="card-latin">Deltoid Muscles</p>
+        <div class="card-divider"></div>
+        <p class="card-desc">The deltoids cap the shoulders with three distinct heads — anterior, medial, and posterior — enabling the full range of arm motion. One of the most mobile and injury-prone joints in the body.</p>
+        <div class="sub-muscles">
+          <span class="sub-muscle">Anterior Deltoid</span>
+          <span class="sub-muscle">Medial Deltoid</span>
+          <span class="sub-muscle">Posterior Deltoid</span>
+          <span class="sub-muscle">Rotator Cuff</span>
+        </div>
+        <div class="muscle-stats">
+          <div class="stat-row"><span class="stat-label">Strength</span><div class="stat-bar"><div class="stat-fill" data-width="72%"></div></div><span class="stat-val" style="color:var(--c-shoulders)">72%</span></div>
+          <div class="stat-row"><span class="stat-label">Mobility</span><div class="stat-bar"><div class="stat-fill" data-width="90%"></div></div><span class="stat-val" style="color:var(--c-shoulders)">90%</span></div>
+          <div class="stat-row"><span class="stat-label">Endurance</span><div class="stat-bar"><div class="stat-fill" data-width="65%"></div></div><span class="stat-val" style="color:var(--c-shoulders)">65%</span></div>
+        </div>
+        <div class="card-explore">View Details →</div>
+      </div>
+
+      <!-- CHEST -->
+      <div class="muscle-card chest reveal" data-cat="upper" onclick="openDetail('chest')">
+        <div class="card-num">02</div>
+        <span class="card-tag">UPPER BODY</span>
+        <h3 class="card-name">CHEST</h3>
+        <p class="card-latin">Pectoralis Major & Minor</p>
+        <div class="card-divider"></div>
+        <p class="card-desc">The pectorals are powerful fan-shaped muscles essential for all pushing movements, arm adduction, and stabilizing the shoulder girdle in daily and athletic activity.</p>
+        <div class="sub-muscles">
+          <span class="sub-muscle">Pectoralis Major</span>
+          <span class="sub-muscle">Pectoralis Minor</span>
+          <span class="sub-muscle">Serratus Anterior</span>
+        </div>
+        <div class="muscle-stats">
+          <div class="stat-row"><span class="stat-label">Strength</span><div class="stat-bar"><div class="stat-fill" data-width="85%"></div></div><span class="stat-val" style="color:var(--c-chest)">85%</span></div>
+          <div class="stat-row"><span class="stat-label">Mobility</span><div class="stat-bar"><div class="stat-fill" data-width="60%"></div></div><span class="stat-val" style="color:var(--c-chest)">60%</span></div>
+          <div class="stat-row"><span class="stat-label">Endurance</span><div class="stat-bar"><div class="stat-fill" data-width="70%"></div></div><span class="stat-val" style="color:var(--c-chest)">70%</span></div>
+        </div>
+        <div class="card-explore">View Details →</div>
+      </div>
+
+      <!-- BACK (full width) -->
+      <div class="muscle-card back reveal" data-cat="upper" style="grid-column:1/-1;" onclick="openDetail('upper-back')">
+        <div class="card-num">03</div>
+        <span class="card-tag">UPPER BODY · LARGEST GROUP</span>
+        <h3 class="card-name">BACK</h3>
+        <p class="card-latin">Latissimus Dorsi, Trapezius & Rhomboids</p>
+        <div class="card-divider"></div>
+        <p class="card-desc">The back musculature is the largest muscle group in the upper body, spanning from the neck to the lumbar region. The Lats form the characteristic V-taper while the Trapezius controls scapula and posture. Rhomboids retract the shoulder blades for proper alignment.</p>
+        <div class="sub-muscles">
+          <span class="sub-muscle">Latissimus Dorsi</span>
+          <span class="sub-muscle">Trapezius (Upper)</span>
+          <span class="sub-muscle">Trapezius (Mid)</span>
+          <span class="sub-muscle">Trapezius (Lower)</span>
+          <span class="sub-muscle">Rhomboids</span>
+          <span class="sub-muscle">Erector Spinae</span>
+          <span class="sub-muscle">Teres Major</span>
+        </div>
+        <div class="muscle-stats">
+          <div class="stat-row"><span class="stat-label">Strength</span><div class="stat-bar"><div class="stat-fill" data-width="92%"></div></div><span class="stat-val" style="color:var(--c-back)">92%</span></div>
+          <div class="stat-row"><span class="stat-label">Mobility</span><div class="stat-bar"><div class="stat-fill" data-width="55%"></div></div><span class="stat-val" style="color:var(--c-back)">55%</span></div>
+          <div class="stat-row"><span class="stat-label">Endurance</span><div class="stat-bar"><div class="stat-fill" data-width="88%"></div></div><span class="stat-val" style="color:var(--c-back)">88%</span></div>
+        </div>
+        <div class="card-explore">View Details →</div>
+      </div>
+
+      <!-- ARMS -->
+      <div class="muscle-card arms reveal" data-cat="arms" onclick="openDetail('biceps')">
+        <div class="card-num">04</div>
+        <span class="card-tag">ARMS</span>
+        <h3 class="card-name">ARMS</h3>
+        <p class="card-latin">Biceps & Triceps Brachii</p>
+        <div class="card-divider"></div>
+        <p class="card-desc">Two antagonistic groups — Biceps on the anterior, Triceps on the posterior — controlling elbow flexion, extension, and forearm supination. Triceps make up ~2/3 of upper arm size.</p>
+        <div class="sub-muscles">
+          <span class="sub-muscle">Biceps Long Head</span>
+          <span class="sub-muscle">Biceps Short Head</span>
+          <span class="sub-muscle">Brachialis</span>
+          <span class="sub-muscle">Triceps (3 Heads)</span>
+        </div>
+        <div class="muscle-stats">
+          <div class="stat-row"><span class="stat-label">Strength</span><div class="stat-bar"><div class="stat-fill" data-width="78%"></div></div><span class="stat-val" style="color:var(--c-arms)">78%</span></div>
+          <div class="stat-row"><span class="stat-label">Mobility</span><div class="stat-bar"><div class="stat-fill" data-width="70%"></div></div><span class="stat-val" style="color:var(--c-arms)">70%</span></div>
+          <div class="stat-row"><span class="stat-label">Endurance</span><div class="stat-bar"><div class="stat-fill" data-width="62%"></div></div><span class="stat-val" style="color:var(--c-arms)">62%</span></div>
+        </div>
+        <div class="card-explore">View Details →</div>
+      </div>
+
+      <!-- CORE -->
+      <div class="muscle-card core-card reveal" data-cat="core" onclick="openDetail('core')">
+        <div class="card-num">05</div>
+        <span class="card-tag">CORE</span>
+        <h3 class="card-name">CORE</h3>
+        <p class="card-latin">Rectus Abdominis, Obliques & TVA</p>
+        <div class="card-divider"></div>
+        <p class="card-desc">The core is the body's force transfer center. The rectus abdominis, internal/external obliques, and deep transverse abdominis work together to stabilize the spine and generate rotational power.</p>
+        <div class="sub-muscles">
+          <span class="sub-muscle">Rectus Abdominis</span>
+          <span class="sub-muscle">External Obliques</span>
+          <span class="sub-muscle">Internal Obliques</span>
+          <span class="sub-muscle">Transverse Abdominis</span>
+        </div>
+        <div class="muscle-stats">
+          <div class="stat-row"><span class="stat-label">Strength</span><div class="stat-bar"><div class="stat-fill" data-width="68%"></div></div><span class="stat-val" style="color:var(--c-core)">68%</span></div>
+          <div class="stat-row"><span class="stat-label">Mobility</span><div class="stat-bar"><div class="stat-fill" data-width="74%"></div></div><span class="stat-val" style="color:var(--c-core)">74%</span></div>
+          <div class="stat-row"><span class="stat-label">Endurance</span><div class="stat-bar"><div class="stat-fill" data-width="80%"></div></div><span class="stat-val" style="color:var(--c-core)">80%</span></div>
+        </div>
+        <div class="card-explore">View Details →</div>
+      </div>
+
+      <!-- LEGS (full width) -->
+      <div class="muscle-card legs reveal" data-cat="lower" style="grid-column:1/-1;" onclick="openDetail('quadriceps')">
+        <div class="card-num">06</div>
+        <span class="card-tag">LOWER BODY · MOST POWERFUL</span>
+        <h3 class="card-name">LEGS</h3>
+        <p class="card-latin">Quadriceps, Gluteals, Hamstrings & Calves</p>
+        <div class="card-divider"></div>
+        <p class="card-desc">The lower body contains the largest and most powerful muscles in the human body. The glutes are the single strongest muscle; the quadriceps dominate knee extension; hamstrings and calves complete the locomotion chain powering every step, sprint, and jump.</p>
+        <div class="sub-muscles">
+          <span class="sub-muscle">Quadriceps</span>
+          <span class="sub-muscle">Gluteus Maximus</span>
+          <span class="sub-muscle">Gluteus Medius</span>
+          <span class="sub-muscle">Hamstrings</span>
+          <span class="sub-muscle">Gastrocnemius</span>
+          <span class="sub-muscle">Soleus</span>
+          <span class="sub-muscle">Hip Flexors</span>
+        </div>
+        <div class="muscle-stats">
+          <div class="stat-row"><span class="stat-label">Strength</span><div class="stat-bar"><div class="stat-fill" data-width="95%"></div></div><span class="stat-val" style="color:var(--c-legs)">95%</span></div>
+          <div class="stat-row"><span class="stat-label">Mobility</span><div class="stat-bar"><div class="stat-fill" data-width="68%"></div></div><span class="stat-val" style="color:var(--c-legs)">68%</span></div>
+          <div class="stat-row"><span class="stat-label">Endurance</span><div class="stat-bar"><div class="stat-fill" data-width="82%"></div></div><span class="stat-val" style="color:var(--c-legs)">82%</span></div>
+        </div>
+        <div class="card-explore">View Details →</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ANATOMY MAP -->
+<section id="body-map">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Interactive Reference</p>
+    <h2 class="section-title">ANATOMY MAP</h2>
+    <div class="section-divider"></div>
+    <p style="font-size:13px;color:var(--muted);margin-top:18px;letter-spacing:1px">Click any muscle group to explore details, exercises &amp; videos</p>
+  </div>
+  <div class="anatomy-wrapper">
+    <div class="anatomy-views reveal">
+      <!-- FRONT VIEW -->
+      <div class="anatomy-view-panel">
+        <div class="view-label">⬤ &nbsp;ANTERIOR — FRONT VIEW</div>
+        <div class="body-figure-wrap" id="frontFigure">
+          <svg class="body-svg" viewBox="0 0 260 520" xmlns="http://www.w3.org/2000/svg">
+            <!-- head -->
+            <ellipse cx="130" cy="30" rx="24" ry="28" fill="#1a1a2a" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <rect x="120" y="56" width="20" height="16" rx="3" fill="#1a1a2a" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <!-- torso -->
+            <path d="M88 72 L72 76 L62 100 L58 155 L64 175 L76 182 L84 186 L176 186 L184 182 L196 175 L202 155 L198 100 L188 76 L172 72 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <!-- arms -->
+            <path d="M64 78 L42 100 L32 140 L34 175 L44 185 L54 178 L62 142 L74 104 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+            <path d="M196 78 L218 100 L228 140 L226 175 L216 185 L206 178 L198 142 L186 104 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+            <!-- forearms -->
+            <path d="M34 175 L28 200 L30 240 L40 250 L50 244 L54 210 L44 185 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <path d="M226 175 L232 200 L230 240 L220 250 L210 244 L206 210 L216 185 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <!-- legs -->
+            <path d="M84 186 L78 210 L74 270 L76 330 L82 360 L90 395 L108 406 L112 340 L114 270 L118 230 L130 210 L142 230 L146 270 L148 340 L152 406 L170 395 L178 360 L184 330 L186 270 L182 210 L176 186 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+            <!-- lower legs -->
+            <path d="M82 358 L78 395 L80 440 L86 470 L100 478 L110 470 L114 440 L112 395 L108 360 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <path d="M178 358 L182 395 L180 440 L174 470 L160 478 L150 470 L146 440 L148 395 L152 360 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <!-- muscle regions -->
+            <ellipse class="muscle-region" cx="62" cy="88" rx="24" ry="16" fill="#e85d26" transform="rotate(-15 62 88)" onclick="openDetail('front-shoulder')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="198" cy="88" rx="24" ry="16" fill="#e85d26" transform="rotate(15 198 88)" onclick="openDetail('front-shoulder')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="130" cy="112" rx="46" ry="30" fill="#e82662" onclick="openDetail('chest')" style="cursor:pointer"/>
+            <rect class="muscle-region" x="108" y="145" width="44" height="38" rx="6" fill="#e8c426" onclick="openDetail('core')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="44" cy="130" rx="14" ry="26" fill="#26e8a6" transform="rotate(-8 44 130)" onclick="openDetail('biceps')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="216" cy="130" rx="14" ry="26" fill="#26e8a6" transform="rotate(8 216 130)" onclick="openDetail('biceps')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="36" cy="212" rx="10" ry="24" fill="#7de8c0" transform="rotate(-5 36 212)" onclick="openDetail('forearm')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="224" cy="212" rx="10" ry="24" fill="#7de8c0" transform="rotate(5 224 212)" onclick="openDetail('forearm')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="96" cy="275" rx="20" ry="50" fill="#d426e8" onclick="openDetail('quadriceps')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="164" cy="275" rx="20" ry="50" fill="#d426e8" onclick="openDetail('quadriceps')" style="cursor:pointer"/>
+            <!-- decorative -->
+            <line x1="130" y1="72" x2="130" y2="186" stroke="rgba(240,192,64,0.12)" stroke-width="1" stroke-dasharray="4 4"/>
+            <path d="M104 76 Q130 84 156 76" stroke="rgba(255,255,255,0.08)" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="muscle-hotspot" style="left:12px;top:70px;color:#e85d26;" onclick="openDetail('front-shoulder')"><div class="hotspot-ring"></div><div class="hotspot-dot"></div><div class="hotspot-label" style="color:#e85d26;">SHOULDER</div></div>
+          <div class="muscle-hotspot" style="left:94px;top:88px;color:#e82662;" onclick="openDetail('chest')"><div class="hotspot-ring"></div><div class="hotspot-dot"></div><div class="hotspot-label" style="color:#e82662;">CHEST</div></div>
+          <div class="muscle-hotspot" style="left:116px;top:136px;color:#e8c426;" onclick="openDetail('core')"><div class="hotspot-ring"></div><div class="hotspot-dot"></div><div class="hotspot-label" style="color:#e8c426;">CORE / ABS</div></div>
+          <div class="muscle-hotspot" style="left:2px;top:116px;color:#26e8a6;" onclick="openDetail('biceps')"><div class="hotspot-ring"></div><div class="hotspot-dot"></div><div class="hotspot-label" style="color:#26e8a6;">BICEPS</div></div>
+          <div class="muscle-hotspot" style="left:2px;top:194px;color:#7de8c0;" onclick="openDetail('forearm')"><div class="hotspot-ring"></div><div class="hotspot-dot"></div><div class="hotspot-label" style="color:#7de8c0;">FOREARM</div></div>
+          <div class="muscle-hotspot" style="left:56px;top:254px;color:#d426e8;" onclick="openDetail('quadriceps')"><div class="hotspot-ring"></div><div class="hotspot-dot"></div><div class="hotspot-label" style="color:#d426e8;">QUADRICEPS</div></div>
+        </div>
+      </div>
+      <!-- BACK VIEW -->
+      <div class="anatomy-view-panel">
+        <div class="view-label">⬤ &nbsp;POSTERIOR — BACK VIEW</div>
+        <div class="body-figure-wrap" id="backFigure">
+          <svg class="body-svg" viewBox="0 0 260 520" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="130" cy="30" rx="24" ry="28" fill="#1a1a2a" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <rect x="120" y="56" width="20" height="16" rx="3" fill="#1a1a2a" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <path d="M88 72 L72 76 L62 100 L58 155 L64 175 L76 182 L84 186 L176 186 L184 182 L196 175 L202 155 L198 100 L188 76 L172 72 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <path d="M64 78 L42 100 L32 140 L34 175 L44 185 L54 178 L62 142 L74 104 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+            <path d="M196 78 L218 100 L228 140 L226 175 L216 185 L206 178 L198 142 L186 104 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+            <path d="M34 175 L28 200 L30 240 L40 250 L50 244 L54 210 L44 185 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <path d="M226 175 L232 200 L230 240 L220 250 L210 244 L206 210 L216 185 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <path d="M84 186 L78 210 L74 270 L76 330 L82 360 L90 395 L108 406 L112 340 L114 270 L118 230 L130 210 L142 230 L146 270 L148 340 L152 406 L170 395 L178 360 L184 330 L186 270 L182 210 L176 186 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+            <path d="M82 358 L78 395 L80 440 L86 470 L100 478 L110 470 L114 440 L112 395 L108 360 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <path d="M178 358 L182 395 L180 440 L174 470 L160 478 L150 470 L146 440 L148 395 L152 360 Z" fill="#1a1a2a" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <!-- muscle regions -->
+            <ellipse class="muscle-region" cx="62" cy="88" rx="24" ry="16" fill="#e85d26" transform="rotate(-15 62 88)" onclick="openDetail('rear-shoulder')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="198" cy="88" rx="24" ry="16" fill="#e85d26" transform="rotate(15 198 88)" onclick="openDetail('rear-shoulder')" style="cursor:pointer"/>
+            <path class="muscle-region" d="M96 76 Q130 68 164 76 L168 110 Q150 104 130 102 Q110 104 92 110 Z" fill="#2662e8" onclick="openDetail('upper-back')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="96" cy="132" rx="28" ry="34" fill="#2662e8" onclick="openDetail('upper-back')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="164" cy="132" rx="28" ry="34" fill="#2662e8" onclick="openDetail('upper-back')" style="cursor:pointer"/>
+            <rect class="muscle-region" x="104" y="148" width="52" height="36" rx="8" fill="#4488ff" onclick="openDetail('lower-back')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="44" cy="130" rx="14" ry="28" fill="#26e8a6" transform="rotate(-8 44 130)" onclick="openDetail('triceps')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="216" cy="130" rx="14" ry="28" fill="#26e8a6" transform="rotate(8 216 130)" onclick="openDetail('triceps')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="100" cy="200" rx="26" ry="22" fill="#d426e8" onclick="openDetail('glutes')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="160" cy="200" rx="26" ry="22" fill="#d426e8" onclick="openDetail('glutes')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="96" cy="275" rx="20" ry="50" fill="#c020d8" onclick="openDetail('hamstrings')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="164" cy="275" rx="20" ry="50" fill="#c020d8" onclick="openDetail('hamstrings')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="96" cy="415" rx="14" ry="32" fill="#a010c0" onclick="openDetail('calves')" style="cursor:pointer"/>
+            <ellipse class="muscle-region" cx="164" cy="415" rx="14" ry="32" fill="#a010c0" onclick="openDetail('calves')" style="cursor:pointer"/>
+            <line x1="130" y1="72" x2="130" y2="186" stroke="rgba(240,192,64,0.12)" stroke-width="1" stroke-dasharray="4 4"/>
+          </svg>
+          <div class="muscle-hotspot" style="left:12px;top:70px;color:#e85d26;" onclick="openDetail('rear-shoulder')"><div class="hotspot-ring"></div><div class="hotspot-dot"></div><div class="hotspot-label" style="color:#e85d26;">REAR DELT</div></div>
+          <div class="muscle-hotspot" style="right:8px;top:82px;color:#2662e8;" onclick="openDetail('upper-back')"><div class="hotspot-ring"></div><div class="hotspot-dot"></div><div class="hotspot-label" style="color:#2662e8;left:auto;right:50%;transform:translateX(50%)">UPPER BACK</div></div>
+          <div class="muscle-hotspot" style="right:8px;top:146px;color:#4488ff;" onclick="openDetail('lower-back')"><div class="hotspot-ring"></div><div class="hotspot-dot"></div><div class="hotspot-label" style="color:#4488ff;left:auto;right:50%;transform:translateX(50%)">LOWER BACK</div></div>
+          <div class="muscle-hotspot" style="left:2px;top:116px;color:#26e8a6;" onclick="openDetail('triceps')"><div class="hotspot-ring"></div><div class="hotspot-dot"></div><div class="hotspot-label" style="color:#26e8a6;">TRICEPS</div></div>
+          <div class="muscle-hotspot" style="left:58px;top:182px;color:#d426e8;" onclick="openDetail('glutes')"><div class="hotspot-ring"></div><div class="hotspot-dot"></div><div class="hotspot-label" style="color:#d426e8;">GLUTES</div></div>
+          <div class="muscle-hotspot" style="left:54px;top:254px;color:#c020d8;" onclick="openDetail('hamstrings')"><div class="hotspot-ring"></div><div class="hotspot-dot"></div><div class="hotspot-label" style="color:#c020d8;">HAMSTRINGS</div></div>
+          <div class="muscle-hotspot" style="left:58px;top:396px;color:#a010c0;" onclick="openDetail('calves')"><div class="hotspot-ring"></div><div class="hotspot-dot"></div><div class="hotspot-label" style="color:#a010c0;">CALVES</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- LEGEND -->
+    <div class="anatomy-legend reveal">
+      <div class="legend-btn" style="color:var(--c-chest)" onclick="openDetail('chest')"><div class="legend-dot-sm" style="background:var(--c-chest)"></div><div><div class="legend-name-sm">CHEST</div><div class="legend-sub-sm">Pectorals</div></div></div>
+      <div class="legend-btn" style="color:var(--c-shoulders)" onclick="openDetail('front-shoulder')"><div class="legend-dot-sm" style="background:var(--c-shoulders)"></div><div><div class="legend-name-sm">SHOULDER</div><div class="legend-sub-sm">Deltoids</div></div></div>
+      <div class="legend-btn" style="color:var(--c-back)" onclick="openDetail('upper-back')"><div class="legend-dot-sm" style="background:var(--c-back)"></div><div><div class="legend-name-sm">UPPER BACK</div><div class="legend-sub-sm">Lats & Traps</div></div></div>
+      <div class="legend-btn" style="color:var(--c-lowerback)" onclick="openDetail('lower-back')"><div class="legend-dot-sm" style="background:var(--c-lowerback)"></div><div><div class="legend-name-sm">LOWER BACK</div><div class="legend-sub-sm">Erectors</div></div></div>
+      <div class="legend-btn" style="color:var(--c-arms)" onclick="openDetail('biceps')"><div class="legend-dot-sm" style="background:var(--c-arms)"></div><div><div class="legend-name-sm">BICEPS</div><div class="legend-sub-sm">Biceps Brachii</div></div></div>
+      <div class="legend-btn" style="color:var(--c-forearm)" onclick="openDetail('triceps')"><div class="legend-dot-sm" style="background:var(--c-forearm)"></div><div><div class="legend-name-sm">TRICEPS</div><div class="legend-sub-sm">Triceps Brachii</div></div></div>
+      <div class="legend-btn" style="color:var(--c-core)" onclick="openDetail('core')"><div class="legend-dot-sm" style="background:var(--c-core)"></div><div><div class="legend-name-sm">CORE / ABS</div><div class="legend-sub-sm">Rectus Abdominis</div></div></div>
+      <div class="legend-btn" style="color:var(--c-forearm)" onclick="openDetail('forearm')"><div class="legend-dot-sm" style="background:var(--c-forearm)"></div><div><div class="legend-name-sm">FOREARM</div><div class="legend-sub-sm">Brachioradialis</div></div></div>
+      <div class="legend-btn" style="color:var(--c-legs)" onclick="openDetail('quadriceps')"><div class="legend-dot-sm" style="background:var(--c-legs)"></div><div><div class="legend-name-sm">QUADRICEPS</div><div class="legend-sub-sm">Anterior Thigh</div></div></div>
+      <div class="legend-btn" style="color:#d426e8" onclick="openDetail('glutes')"><div class="legend-dot-sm" style="background:#d426e8"></div><div><div class="legend-name-sm">GLUTES</div><div class="legend-sub-sm">Gluteus Maximus</div></div></div>
+      <div class="legend-btn" style="color:var(--c-hamstrings)" onclick="openDetail('hamstrings')"><div class="legend-dot-sm" style="background:var(--c-hamstrings)"></div><div><div class="legend-name-sm">HAMSTRINGS</div><div class="legend-sub-sm">Posterior Thigh</div></div></div>
+      <div class="legend-btn" style="color:var(--c-calves)" onclick="openDetail('calves')"><div class="legend-dot-sm" style="background:var(--c-calves)"></div><div><div class="legend-name-sm">CALVES</div><div class="legend-sub-sm">Gastrocnemius</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNCTIONS -->
+<section id="functions">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">What They Do</p>
+    <h2 class="section-title">PRIMARY FUNCTIONS</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="functions-grid">
+    <div class="func-card" style="--func-color:var(--c-arms)"><span class="func-icon">🏋️</span><h3 class="func-title">FLEXION & EXTENSION</h3><p class="func-group">Arms · Legs</p><p class="func-desc">The biceps and triceps control elbow flexion and extension. Quadriceps extend the knee while hamstrings flex it — the fundamental push-pull of every limb movement.</p></div>
+    <div class="func-card" style="--func-color:var(--c-shoulders)"><span class="func-icon">↕️</span><h3 class="func-title">ABDUCTION & ADDUCTION</h3><p class="func-group">Shoulders · Back</p><p class="func-desc">Medial deltoid raises the arm laterally; latissimus dorsi pulls it back to the body. These opposing forces create the full arc of shoulder mobility.</p></div>
+    <div class="func-card" style="--func-color:var(--c-chest)"><span class="func-icon">💪</span><h3 class="func-title">PUSHING & PRESSING</h3><p class="func-group">Chest · Shoulders</p><p class="func-desc">The pectoralis major is the prime mover in horizontal pressing. Combined with the anterior deltoid and triceps, it generates all everyday pushing force.</p></div>
+    <div class="func-card" style="--func-color:var(--c-back)"><span class="func-icon">🔄</span><h3 class="func-title">ROTATION & STABILITY</h3><p class="func-group">Back · Core</p><p class="func-desc">The trapezius stabilizes and rotates the scapula while the rotator cuff maintains glenohumeral integrity during dynamic arm movements.</p></div>
+    <div class="func-card" style="--func-color:var(--c-legs)"><span class="func-icon">🦵</span><h3 class="func-title">LOCOMOTION & POWER</h3><p class="func-group">Legs · Glutes</p><p class="func-desc">Gluteus maximus generates explosive hip extension. Quadriceps are critical for running, jumping, and squatting — the body's primary power output engines.</p></div>
+    <div class="func-card" style="--func-color:var(--c-core)"><span class="func-icon">⚡</span><h3 class="func-title">CORE TRANSFER</h3><p class="func-group">Core · Abs</p><p class="func-desc">The transverse abdominis acts as a natural lifting belt. The obliques generate rotational force and transfer power between upper and lower body.</p></div>
+  </div>
+</section>
+
+<!-- WORKOUT PLANNER -->
+<section id="planner">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Training Structure</p>
+    <h2 class="section-title">WORKOUT PLANNER</h2>
+    <div class="section-divider"></div>
+    <p style="font-size:13px;color:var(--muted);margin-top:18px;letter-spacing:1px">Science-based weekly splits. Click an exercise to explore that muscle.</p>
+  </div>
+  <div class="planner-wrap reveal">
+    <div class="planner-left">
+      <h3 class="planner-title">5-DAY<br>STRENGTH SPLIT</h3>
+      <p class="planner-sub">A proven push/pull/legs structure that maximises muscle overlap and recovery. Each muscle group receives adequate volume and 48–72 hours rest between sessions.</p>
+      <div class="planner-days" id="plannerDays">
+        <button class="day-btn active" data-day="0">MON</button>
+        <button class="day-btn" data-day="1">TUE</button>
+        <button class="day-btn" data-day="2">WED</button>
+        <button class="day-btn" data-day="3">THU</button>
+        <button class="day-btn" data-day="4">FRI</button>
+        <button class="day-btn" data-day="5">SAT</button>
+        <button class="day-btn" data-day="6">SUN</button>
+      </div>
+      <p style="font-size:12px;color:var(--muted);line-height:1.8;margin-top:8px">Select a day to see the workout plan. Rest days include active recovery — light walking, stretching, or mobility work.</p>
+    </div>
+    <div class="planner-right">
+      <div class="planner-card" id="plannerCard"></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section id="compare">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Side-by-Side Analysis</p>
+    <h2 class="section-title">COMPARE MUSCLES</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="compare-wrap reveal">
+    <div class="compare-selectors">
+      <select class="compare-select" id="compareA" onchange="updateCompare()">
+        <option value="">— Select Muscle A —</option>
+      </select>
+      <select class="compare-select" id="compareB" onchange="updateCompare()">
+        <option value="">— Select Muscle B —</option>
+      </select>
+    </div>
+    <div class="compare-result" id="compareResult">
+      <div class="compare-placeholder">Select two muscles to compare</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section id="tips">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Performance Guidance</p>
+    <h2 class="section-title">TRAINING TIPS</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-num">01</div><div><h4 class="tip-title">PROGRESSIVE OVERLOAD</h4><p class="tip-body">Muscles grow only when consistently challenged. Increase weight, reps, or volume week over week to stimulate continuous adaptation. Even a small 2.5% increase is enough signal for growth.</p></div></div>
+    <div class="tip-card"><div class="tip-num">02</div><div><h4 class="tip-title">COMPOUND MOVEMENTS FIRST</h4><p class="tip-body">Prioritize multi-joint exercises — squats, deadlifts, bench press, pull-ups — before isolation work. They produce the highest hormonal response and systemic training effect.</p></div></div>
+    <div class="tip-card"><div class="tip-num">03</div><div><h4 class="tip-title">MIND-MUSCLE CONNECTION</h4><p class="tip-body">Actively contracting the target muscle during each rep increases activation by 20–30% per EMG research. Slow the eccentric, feel the stretch, and focus on the working muscle.</p></div></div>
+    <div class="tip-card"><div class="tip-num">04</div><div><h4 class="tip-title">BALANCED ANTAGONISTS</h4><p class="tip-body">Pair opposing muscle groups: chest with back, biceps with triceps, quads with hamstrings. Imbalances cause joint stress and increase injury risk dramatically over time.</p></div></div>
+    <div class="tip-card"><div class="tip-num">05</div><div><h4 class="tip-title">PROTEIN & RECOVERY</h4><p class="tip-body">Muscle synthesis occurs during rest, not exercise. Allow 48 hours minimum between training the same group. Consume 1.6–2.2g protein/kg bodyweight daily for optimal repair.</p></div></div>
+    <div class="tip-card"><div class="tip-num">06</div><div><h4 class="tip-title">FULL RANGE OF MOTION</h4><p class="tip-body">Training through complete ranges builds strength across the entire length-tension curve, improves flexibility, and reduces injury risk — especially at the shoulder and knee joints.</p></div></div>
+    <div class="tip-card"><div class="tip-num">07</div><div><h4 class="tip-title">DELOAD WEEKS</h4><p class="tip-body">Every 4–6 weeks reduce volume by 40–50%. Deloads restore CNS capacity and allow connective tissue to recover — consistently trained athletes who deload outperform those who never stop.</p></div></div>
+    <div class="tip-card"><div class="tip-num">08</div><div><h4 class="tip-title">SLEEP & GROWTH HORMONE</h4><p class="tip-body">80% of growth hormone is released during deep sleep. 7–9 hours nightly is non-negotiable for muscle growth. Sleep deprivation alone can cut strength gains by up to 30%.</p></div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">MUSCLE ATLAS</div>
+  <div class="footer-links">
+    <a href="#muscles">Muscles</a>
+    <a href="#body-map">Anatomy</a>
+    <a href="#planner">Planner</a>
+    <a href="#compare">Compare</a>
+    <a href="#tips">Tips</a>
+  </div>
+  <div class="footer-text">Human Anatomy · Educational Reference · 640+ Muscles</div>
+</footer>
+
+<!-- DETAIL MODAL -->
+<div class="detail-overlay" id="detailOverlay" onclick="handleOverlayClick(event)">
+  <div class="detail-panel" id="detailPanel">
+    <div class="detail-hero-band" id="detailHeroBand">
+      <div class="detail-hero-num" id="detailHeroNum"></div>
+      <button class="detail-close" onclick="closeDetail()">✕</button>
+      <button class="detail-back-btn" onclick="closeDetail()">← Back</button>
+      <span class="detail-tag" id="detailTag"></span>
+      <h2 class="detail-name" id="detailName"></h2>
+      <p class="detail-latin" id="detailLatin"></p>
+      <div class="detail-stat-row" id="detailStatRow"></div>
+    </div>
+    <div class="detail-body" id="detailBody"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
